@@ -36,6 +36,16 @@ Open `index.html` directly in a browser, or use VS Code Live Server.
 - UI Animations and UX improvements
 - Responsive compatibility for desktop, tablet, and mobile
 
-## Demo Login
-- Email: `student@edutrack.com`
-- Password: `Student123`
+### Week 4
+- Separate Administrator, Teacher, and Student dashboard layouts
+- Role-based navigation menus and role-specific login routing
+- Profile Management Page
+- Dark Mode / Light Mode Toggle with saved preference
+- Notification Panel UI
+- Improved dashboard responsiveness and accessibility
+- JavaScript performance improvements using debouncing and DocumentFragment rendering
+
+## Demo Role Logins
+- Student: `student@edutrack.com` / `Student123`
+- Teacher: `teacher@edutrack.com` / `Teacher123`
+- Administrator: `admin@edutrack.com` / `Admin123`

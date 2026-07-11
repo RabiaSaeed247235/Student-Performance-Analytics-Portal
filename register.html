@@ -22,6 +22,7 @@
       <form id="register-form" class="form-grid" novalidate>
         <label>Full Name<input id="register-name" type="text" autocomplete="name" placeholder="Your full name" minlength="2" required></label>
         <label>Email Address<input id="register-email" type="email" autocomplete="email" placeholder="name@example.com" required></label>
+        <label>User Role<select id="register-role" required><option value="student">Student</option><option value="teacher">Teacher</option><option value="administrator">Administrator</option></select></label>
         <label>Password<input id="register-password" type="password" autocomplete="new-password" placeholder="Minimum 8 characters" minlength="8" required></label>
         <label>Confirm Password<input id="register-confirm-password" type="password" autocomplete="new-password" placeholder="Repeat password" minlength="8" required></label>
         <button class="btn btn-primary full-width" type="submit">Register</button>

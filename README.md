@@ -49,3 +49,13 @@ Open `index.html` directly in a browser, or use VS Code Live Server.
 - Student: `student@edutrack.com` / `Student123`
 - Teacher: `teacher@edutrack.com` / `Teacher123`
 - Administrator: `admin@edutrack.com` / `Admin123`
+
+### Week 5
+- Advanced search and filter system with score range, attendance filter, grade filter, field search, and sorting
+- Pagination for student records with selectable rows per page
+- CSV export and PDF/print export interface
+- Interactive chart widgets using a local Chart.js-compatible canvas renderer
+- Recent activity widgets
+- Notification widgets retained from role dashboards
+- Improved form validation and inline error messages
+- Performance and responsiveness improvements for dashboard tables and charts

@@ -41,6 +41,21 @@
       </div>
     </section>
 
+
+    <section class="section container dashboard-grid week5-dashboard-tools">
+      <div class="panel">
+        <div class="panel-header"><div><p class="eyebrow">Interactive Charts</p><h2>Performance visualization</h2></div></div>
+        <div class="chart-grid">
+          <div class="chart-card"><h3>Overall Scores</h3><canvas id="overall-score-chart" height="180"></canvas></div>
+          <div class="chart-card"><h3>Grade Distribution</h3><canvas id="grade-distribution-chart" height="180"></canvas></div>
+        </div>
+      </div>
+      <aside class="panel">
+        <div class="panel-header"><div><p class="eyebrow">Recent Activity</p><h2>Latest updates</h2></div></div>
+        <ul class="activity-list" data-activity-list></ul>
+      </aside>
+    </section>
+
     <section class="section container dashboard-grid">
       <div class="panel">
         <div class="panel-header stack-mobile">
@@ -49,7 +64,7 @@
 
         <div class="advanced-controls" aria-label="Advanced search and sorting controls">
           <label class="search-box">Search
-            <input id="student-search" type="search" placeholder="Enter search text">
+            <input id="student-search" type="search" placeholder="Search by name, ID, grade, score or attendance">
           </label>
           <label class="filter-control">Search Field
             <select id="student-search-field">
@@ -57,6 +72,8 @@
               <option value="id">Student ID</option>
               <option value="name">Name</option>
               <option value="grade">Grade</option>
+              <option value="overall">Overall Score</option>
+              <option value="attendance">Attendance</option>
             </select>
           </label>
           <label class="filter-control">Grade
@@ -69,6 +86,12 @@
           <label class="filter-control">Minimum Score
             <input id="student-min-score" type="number" min="0" max="100" placeholder="0">
           </label>
+          <label class="filter-control">Maximum Score
+            <input id="student-max-score" type="number" min="0" max="100" placeholder="100">
+          </label>
+          <label class="filter-control">Minimum Attendance
+            <input id="student-min-attendance" type="number" min="0" max="100" placeholder="0">
+          </label>
           <label class="filter-control">Sort By
             <select id="student-sort">
               <option value="id-asc">Student ID</option>
@@ -77,9 +100,22 @@
               <option value="score-desc">Score High–Low</option>
               <option value="score-asc">Score Low–High</option>
               <option value="attendance-desc">Attendance High–Low</option>
+              <option value="attendance-asc">Attendance Low–High</option>
+              <option value="grade-asc">Grade A–F</option>
             </select>
           </label>
         </div>
+
+        <div class="table-action-bar" aria-label="Record export and pagination tools">
+          <div class="export-actions">
+            <button class="btn btn-secondary" id="student-export-csv" type="button">Export CSV</button>
+            <button class="btn btn-secondary" id="student-export-pdf" type="button">Export PDF</button>
+          </div>
+          <label class="filter-control rows-control">Rows per page
+            <select id="student-page-size"><option value="5">5</option><option value="10">10</option><option value="20">20</option></select>
+          </label>
+        </div>
+        <p class="form-message" id="student-export-status" role="status" aria-live="polite"></p>
 
         <div class="table-wrap">
           <table id="student-table">
@@ -87,7 +123,7 @@
             <tbody></tbody>
           </table>
         </div>
-        <p class="empty-state" id="student-empty" hidden>No matching student record found.</p>
+        <p class="empty-state" id="student-empty" hidden>No matching student record found.</p><div class="pagination-bar" aria-label="Student records pagination"><button class="btn btn-secondary" id="student-prev-page" type="button">Previous</button><span id="student-page-info">Page 1 of 1</span><button class="btn btn-secondary" id="student-next-page" type="button">Next</button><span id="student-result-count">0 records found</span></div>
       </div>
 
       <aside class="panel">
@@ -106,6 +142,6 @@
   </main>
 
   <footer class="site-footer"><div class="container footer-content"><p>© 2026 EduTrack Analytics. Student Performance Analytics Portal.</p><div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a></div></div></footer>
-  <script src="js/app.js"></script>
+  <script src="js/chart.min.js"></script><script src="js/app.js"></script>
 </body>
 </html>

@@ -19,11 +19,26 @@
   </header>
 
   <main>
-    <section class="page-banner compact"><div class="container"><p class="eyebrow">Performance Reports</p><h1>Interactive student assessment results</h1><p>Use Chart.js visualizations, filters, sorting, and export controls to review student performance data.</p></div></section>
+    <section class="page-banner compact"><div class="container"><p class="eyebrow">Performance Reports</p><h1>Interactive student assessment results</h1><p>
+Generate performance reports with charts, filtering, exporting and role based access.
+</p></div></section>
 
     <section class="section container">
       <div class="panel">
-        <div class="panel-header stack-mobile"><div><p class="eyebrow">Interactive Charts</p><h2>Performance dashboard</h2></div><div class="export-actions"><button class="btn btn-secondary" id="report-export-csv" type="button">Export CSV</button><button class="btn btn-secondary" id="report-export-pdf" type="button">Export PDF</button></div></div>
+        <div class="panel-header stack-mobile"><div><p class="eyebrow">Interactive Charts</p><h2>Performance dashboard</h2></div><div class="dashboard-actions">
+
+
+<button class="theme-toggle" id="theme-toggle" type="button">
+🌙 Dark Mode
+</button>
+
+
+<button class="btn btn-secondary" data-logout>
+Sign Out
+</button>
+
+
+</div>
         <p class="form-message" id="report-status" role="status" aria-live="polite"></p>
         <div class="chart-grid three">
           <div class="chart-card"><h3>Grade Distribution</h3><canvas id="grade-distribution-chart" height="190"></canvas></div>
@@ -43,7 +58,8 @@
         </div>
         <div class="table-wrap">
           <table id="report-table"><caption class="sr-only">Interactive student performance report</caption>
-            <thead><tr><th>ID</th><th>Name</th><th>Attendance</th><th>Assignment</th><th>Quiz</th><th>Mid</th><th>Final</th><th>Overall</th><th>Grade</th></tr></thead>
+            <thead><tr><th>ID</th><th>Name</th><th>Attendance</th><th>Assignment</th><th>Quiz</th><th>Mid</th><th>Final</th><th>Overall</th><th>Grade</th>
+<th>Profile</th></tr></thead>
             <tbody></tbody>
           </table>
         </div>
@@ -58,6 +74,47 @@
         <ul class="activity-list" data-activity-list></ul>
       </div>
     </section>
+    <aside 
+class="notification-panel"
+id="notification-panel"
+hidden>
+
+
+<div class="notification-header">
+
+<h2>
+Notifications
+</h2>
+
+
+<button 
+class="icon-button"
+id="notification-close">
+
+×
+</button>
+
+
+</div>
+
+
+<ul 
+class="notification-list"
+id="notification-list">
+
+</ul>
+
+
+<button 
+class="btn btn-secondary full-width"
+id="mark-notifications-read">
+
+Mark all as read
+
+</button>
+
+
+</aside>
   </main>
 
   <footer class="site-footer"><div class="container footer-content"><p>© 2026 EduTrack Analytics. Student Performance Analytics Portal.</p><div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a></div></div></footer>

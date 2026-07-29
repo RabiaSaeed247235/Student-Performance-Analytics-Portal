@@ -7,7 +7,7 @@
   <title>EduTrack Analytics | Dashboard</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body data-role-router="true">
+<body >
   <header class="site-header">
     <nav class="navbar container" aria-label="Main navigation">
       <a class="brand" href="index.html"><span class="brand-mark">EA</span><span>EduTrack Analytics</span></a>
@@ -25,22 +25,101 @@
 
   <main>
     <section class="page-banner compact">
-      <div class="container">
-        <p class="eyebrow">Dashboard</p>
-        <h1>Student performance overview</h1>
-        <p>Review dynamic indicators, use advanced search and sorting, and open individual student profiles.</p>
-      </div>
-    </section>
+  <div class="container">
 
-    <section class="section container">
-      <div class="stats-grid" aria-label="Dynamic dashboard statistics">
-        <article class="stat-card"><span class="stat-label">Total Students</span><strong id="student-count">0</strong><small>Current records</small></article>
-        <article class="stat-card"><span class="stat-label">Average Score</span><strong id="average-score">0%</strong><small>Calculated by JavaScript</small></article>
-        <article class="stat-card"><span class="stat-label">Top Grade</span><strong id="top-grade">—</strong><small>Highest current grade</small></article>
-        <article class="stat-card"><span class="stat-label">Attendance</span><strong id="average-attendance">0%</strong><small>Average rate</small></article>
-      </div>
-    </section>
+    <p class="eyebrow">Advanced Dashboard</p>
 
+    <h1>
+      Student Performance Analytics Dashboard
+    </h1>
+
+    <p>
+      Manage student records, analyze performance,
+      visualize data and monitor academic progress.
+    </p>
+
+  </div>
+</section>
+
+   <section class="section container">
+
+<div class="stats-grid" aria-label="Dynamic dashboard statistics">
+
+
+<article class="stat-card">
+
+<span class="stat-label">
+👨‍🎓 Total Students
+</span>
+
+<strong id="student-count">
+0
+</strong>
+
+<small>
+Current registered records
+</small>
+
+</article>
+
+
+
+<article class="stat-card">
+
+<span class="stat-label">
+📊 Average Score
+</span>
+
+<strong id="average-score">
+0%
+</strong>
+
+<small>
+Performance analysis
+</small>
+
+</article>
+
+
+
+<article class="stat-card">
+
+<span class="stat-label">
+🏆 Top Grade
+</span>
+
+<strong id="top-grade">
+—
+</strong>
+
+<small>
+Highest achievement
+</small>
+
+</article>
+
+
+
+<article class="stat-card">
+
+<span class="stat-label">
+📅 Attendance
+</span>
+
+<strong id="average-attendance">
+0%
+</strong>
+
+<small>
+Average attendance rate
+</small>
+
+</article>
+
+
+</div>
+
+</section>
 
     <section class="section container dashboard-grid week5-dashboard-tools">
       <div class="panel">
@@ -50,10 +129,64 @@
           <div class="chart-card"><h3>Grade Distribution</h3><canvas id="grade-distribution-chart" height="180"></canvas></div>
         </div>
       </div>
-      <aside class="panel">
-        <div class="panel-header"><div><p class="eyebrow">Recent Activity</p><h2>Latest updates</h2></div></div>
-        <ul class="activity-list" data-activity-list></ul>
-      </aside>
+     <aside class="panel">
+
+
+<div class="panel-header">
+
+<div>
+
+<p class="eyebrow">
+Recent Activity
+</p>
+
+<h2>
+Latest Updates
+</h2>
+
+</div>
+
+</div>
+
+
+<ul class="activity-list" data-activity-list></ul>
+
+
+
+<div class="notification-box">
+
+
+<h3>
+🔔 Notifications
+</h3>
+
+
+<ul>
+
+<li>
+✔ Dashboard optimized successfully
+</li>
+
+<li>
+✔ Student records updated
+</li>
+
+<li>
+✔ Reports generated
+</li>
+
+<li>
+✔ Performance analysis completed
+</li>
+
+
+</ul>
+
+
+</div>
+
+
+</aside>
     </section>
 
     <section class="section container dashboard-grid">

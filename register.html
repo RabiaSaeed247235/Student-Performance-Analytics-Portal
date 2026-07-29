@@ -1,38 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Register for the Student Performance Analytics Portal">
-  <title>EduTrack Analytics | Register</title>
-  <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Register for the Student Performance Analytics Portal">
+    <title>EduTrack Analytics | Register</title>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-  <header class="site-header">
-    <nav class="navbar container" aria-label="Main navigation">
-      <a class="brand" href="index.html"><span class="brand-mark">EA</span><span>EduTrack Analytics</span></a>
-      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">☰</button>
-      <ul class="nav-links" id="nav-links"><li><a href="index.html">Home</a></li><li><a href="dashboard.html">Dashboard</a></li><li><a href="reports.html">Reports</a></li><li><a href="login.html">Login</a></li><li><a class="active" href="register.html">Register</a></li></ul>
-    </nav>
-  </header>
 
-  <main class="login-main">
-    <section class="login-card" aria-labelledby="register-title">
-      <div class="section-heading"><p class="eyebrow">Registration</p><h1 id="register-title">Create account</h1><p>User information is stored in Local Storage for front-end simulation.</p></div>
-      <form id="register-form" class="form-grid" novalidate>
-        <label>Full Name<input id="register-name" type="text" autocomplete="name" placeholder="Your full name" minlength="2" required></label>
-        <label>Email Address<input id="register-email" type="email" autocomplete="email" placeholder="name@example.com" required></label>
-        <label>User Role<select id="register-role" required><option value="student">Student</option><option value="teacher">Teacher</option><option value="administrator">Administrator</option></select></label>
-        <label>Password<input id="register-password" type="password" autocomplete="new-password" placeholder="Minimum 8 characters" minlength="8" required></label>
-        <label>Confirm Password<input id="register-confirm-password" type="password" autocomplete="new-password" placeholder="Repeat password" minlength="8" required></label>
-        <button class="btn btn-primary full-width" type="submit">Register</button>
-        <p class="form-message" id="register-message" role="status"></p>
-      </form>
-      <p class="auth-prompt">Already registered? <a href="login.html">Login here</a></p>
-    </section>
-  </main>
+    <header class="site-header">
 
-  <footer class="site-footer"><div class="container footer-content"><p>© 2026 EduTrack Analytics. Student Performance Analytics Portal.</p><div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a></div></div></footer>
-  <script src="js/app.js"></script>
+        <nav class="navbar container" aria-label="Main navigation">
+
+            <a class="brand" href="index.html">
+                <span class="brand-mark">EA</span>
+                <span>EduTrack Analytics</span>
+            </a>
+
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Toggle navigation"
+                aria-expanded="false"
+                aria-controls="nav-links">
+                ☰
+            </button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="reports.html">Reports</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a class="active" href="register.html">Register</a></li>
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main class="login-main">
+
+        <section class="login-card" aria-labelledby="register-title">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">Registration</p>
+
+                <h1 id="register-title">
+                    Create Your Account
+                </h1>
+
+                <p>
+                    Register to access the Student Performance Analytics Portal.
+                    Your information will be securely stored in Local Storage for
+                    front-end simulation purposes.
+                </p>
+
+            </div>
+
+            <form id="register-form" class="form-grid" novalidate>
+
+                <label for="register-name">
+                    Full Name
+                </label>
+
+                <input
+                    id="register-name"
+                    type="text"
+                    name="fullname"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    minlength="3"
+                    maxlength="50"
+                    required
+                    spellcheck="false"
+                    aria-label="Full Name">
+
+                <label for="register-email">
+                    Email Address
+                </label>
+
+                <input
+                    id="register-email"
+                    type="email"
+                    name="email"
+                    placeholder="name@example.com"
+                    autocomplete="email"
+                    maxlength="100"
+                    required
+                    spellcheck="false"
+                    aria-label="Email Address">
+
+                <label for="register-role">
+                    User Role
+                </label>
+
+                <select
+                    id="register-role"
+                    name="role"
+                    required
+                    aria-label="User Role">
+
+                    <option value="">Select Role</option>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                    <option value="administrator">Administrator</option>
+
+                </select>
+
+                <label for="register-password">
+                    Password
+                </label>
+
+                <input
+                    id="register-password"
+                    type="password"
+                    name="password"
+                    placeholder="Minimum 8 characters"
+                    autocomplete="new-password"
+                    minlength="8"
+                    maxlength="20"
+                    required
+                    aria-label="Password">
+
+                <label for="register-confirm-password">
+                    Confirm Password
+                </label>
+
+                <input
+                    id="register-confirm-password"
+                    type="password"
+                    name="confirm-password"
+                    placeholder="Confirm your password"
+                    autocomplete="new-password"
+                    minlength="8"
+                    maxlength="20"
+                    required
+                    aria-label="Confirm Password">
+
+                <!-- Week 6 Error Message -->
+
+                <div
+                    id="register-error"
+                    class="error-message"
+                    role="alert"
+                    aria-live="assertive">
+                </div>
+
+                <button
+                    class="btn btn-primary full-width"
+                    type="submit">
+                    ✅ Create Account
+                </button>
+
+                <p
+                    class="form-message"
+                    id="register-message"
+                    role="status"
+                    aria-live="polite">
+                </p>
+
+            </form>
+
+            <div class="login-note">
+
+                <p>
+                    <strong>Note:</strong>
+                    Password must contain at least 8 characters.
+                    Please use a valid email address while registering.
+                </p>
+
+            </div>
+
+            <p class="auth-prompt">
+                Already registered?
+                <a href="login.html">
+                    Login here
+                </a>
+            </p>
+
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+
+        <div class="container footer-content">
+
+            <p>
+                © 2026 EduTrack Analytics.
+                Student Performance Analytics Portal.
+            </p>
+
+            <div class="footer-links">
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="js/app.js"></script>
+
 </body>
 </html>

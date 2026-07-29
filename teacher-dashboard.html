@@ -1,63 +1,794 @@
 <!DOCTYPE html>
 <html lang="en">
-<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Teacher dashboard for the Student Performance Analytics Portal"><title>EduTrack Analytics | Teacher Dashboard</title><link rel="stylesheet" href="css/style.css"></head>
-<body data-required-role="teacher">
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  <header class="site-header">
-    <nav class="navbar container" aria-label="Teacher navigation">
-      <a class="brand" href="index.html"><span class="brand-mark">EA</span><span>EduTrack Analytics</span></a>
-      <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">☰</button>
-      <ul class="nav-links" id="nav-links"><li><a class="active" href="teacher-dashboard.html">Dashboard</a></li><li><a href="teacher-dashboard.html#student-records">Student Records</a></li><li><a href="reports.html">Reports</a></li><li><a href="account-profile.html">Profile</a></li></ul>
-    </nav>
-  </header>
-  <main id="main-content">
-    <section class="page-banner compact"><div class="container role-banner-row"><div><p class="eyebrow">Teacher Dashboard</p><h1>Class performance and student review</h1><p>Review student progress using teacher-specific navigation, search, filtering, and performance summaries.</p></div><div class="dashboard-actions"><button class="notification-toggle" id="notification-toggle" type="button" aria-expanded="false" aria-controls="notification-panel">Notifications <span class="notification-badge" id="notification-badge">0</span></button><button class="btn btn-secondary" type="button" data-logout>Sign out</button></div></div></section>
-    <section class="section container"><div class="role-welcome"><span class="role-chip">Teacher</span><p>Signed in as <strong data-current-user-name></strong></p></div><div class="stats-grid" aria-label="Teacher performance statistics"><article class="stat-card"><span class="stat-label">Students</span><strong id="student-count">0</strong><small>Visible records</small></article><article class="stat-card"><span class="stat-label">Average Score</span><strong id="average-score">0%</strong><small>Class average</small></article><article class="stat-card"><span class="stat-label">Top Grade</span><strong id="top-grade">—</strong><small>Highest current grade</small></article><article class="stat-card"><span class="stat-label">Attendance</span><strong id="average-attendance">0%</strong><small>Class average</small></article></div></section>
-    
-    <section class="section container dashboard-grid week5-dashboard-tools">
-      <div class="panel">
-        <div class="panel-header"><div><p class="eyebrow">Interactive Charts</p><h2>Performance visualization</h2></div></div>
-        <div class="chart-grid">
-          <div class="chart-card"><h3>Overall Scores</h3><canvas id="overall-score-chart" height="180"></canvas></div>
-          <div class="chart-card"><h3>Grade Distribution</h3><canvas id="grade-distribution-chart" height="180"></canvas></div>
-        </div>
-      </div>
-      <aside class="panel">
-        <div class="panel-header"><div><p class="eyebrow">Recent Activity</p><h2>Latest updates</h2></div></div>
-        <ul class="activity-list" data-activity-list></ul>
-      </aside>
-    </section>
 
-    <section class="section container" id="student-records"><div class="panel"><div class="panel-header"><div><p class="eyebrow">Teacher View</p><h2>Student information and performance</h2></div></div>
-        <div class="advanced-controls" aria-label="Search, filter and sorting controls">
-          <label class="search-box">Search<input id="student-search" type="search" placeholder="Search by name, ID, grade, score or attendance"></label>
-          <label class="filter-control">Search Field<select id="student-search-field"><option value="all">All Fields</option><option value="id">Student ID</option><option value="name">Name</option><option value="grade">Grade</option><option value="overall">Overall Score</option><option value="attendance">Attendance</option></select></label>
-          <label class="filter-control">Grade<select id="student-grade-filter"><option value="all">All Grades</option><option value="A+">A+</option><option value="A">A</option><option value="B+">B+</option><option value="B">B</option><option value="C+">C+</option><option value="C">C</option><option value="D">D</option><option value="F">F</option></select></label>
-          <label class="filter-control">Minimum Score<input id="student-min-score" type="number" min="0" max="100" placeholder="0"></label>
-          <label class="filter-control">Maximum Score<input id="student-max-score" type="number" min="0" max="100" placeholder="100"></label>
-          <label class="filter-control">Minimum Attendance<input id="student-min-attendance" type="number" min="0" max="100" placeholder="0"></label>
-          <label class="filter-control">Sort By<select id="student-sort"><option value="id-asc">Student ID</option><option value="name-asc">Name A–Z</option><option value="name-desc">Name Z–A</option><option value="score-desc">Score High–Low</option><option value="score-asc">Score Low–High</option><option value="attendance-desc">Attendance High–Low</option><option value="attendance-asc">Attendance Low–High</option><option value="grade-asc">Grade A–F</option></select></label>
-        </div>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <div class="table-action-bar" aria-label="Record export and pagination tools">
-          <div class="export-actions">
-            <button class="btn btn-secondary" id="student-export-csv" type="button">Export CSV</button>
-            <button class="btn btn-secondary" id="student-export-pdf" type="button">Export PDF</button>
-          </div>
-          <label class="filter-control rows-control">Rows per page
-            <select id="student-page-size"><option value="5">5</option><option value="10">10</option><option value="20">20</option></select>
-          </label>
-        </div>
-        <p class="form-message" id="student-export-status" role="status" aria-live="polite"></p>
-        <div class="table-wrap">
-          <table id="student-table"><caption class="sr-only">Student information records</caption><thead><tr><th scope="col">Student ID</th><th scope="col">Name</th><th scope="col">Attendance</th><th scope="col">Overall</th><th scope="col">Grade</th><th scope="col">Profile</th></tr></thead><tbody></tbody></table>
-        </div><p class="empty-state" id="student-empty" hidden>No matching student record found.</p><div class="pagination-bar" aria-label="Student records pagination"><button class="btn btn-secondary" id="student-prev-page" type="button">Previous</button><span id="student-page-info">Page 1 of 1</span><button class="btn btn-secondary" id="student-next-page" type="button">Next</button><span id="student-result-count">0 records found</span></div></div></section>
-    
-    <aside class="notification-panel" id="notification-panel" aria-labelledby="notification-title" hidden>
-      <div class="notification-header"><div><p class="eyebrow">Updates</p><h2 id="notification-title">Notifications</h2></div><button class="icon-button" id="notification-close" type="button" aria-label="Close notifications">×</button></div>
-      <ul class="notification-list" id="notification-list" aria-live="polite"></ul>
-      <button class="btn btn-secondary full-width" id="mark-notifications-read" type="button">Mark all as read</button>
-    </aside>
-  </main>
-  <footer class="site-footer"><div class="container footer-content"><p>© 2026 EduTrack Analytics. Student Performance Analytics Portal.</p><div class="footer-links"><a href="account-profile.html">Profile</a><a href="reports.html">Reports</a></div></div></footer><script src="js/chart.min.js"></script><script src="js/app.js"></script>
-</body></html>
+<title>EduTrack Analytics | Teacher Dashboard</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<a class="skip-link" href="#main-content">
+Skip to main content
+</a>
+
+
+<header class="site-header">
+
+<nav class="navbar container">
+
+<a class="brand" href="index.html">
+<span class="brand-mark">EA</span>
+<span>EduTrack Analytics</span>
+</a>
+
+
+<button class="menu-toggle">
+☰
+</button>
+
+
+<ul class="nav-links" id="nav-links">
+
+<li>
+<a class="active" href="teacher-dashboard.html">
+Dashboard
+</a>
+</li>
+
+
+<li>
+<a href="#student-records">
+Students
+</a>
+</li>
+
+
+<li>
+<a href="reports.html">
+Reports
+</a>
+</li>
+
+
+<li>
+<a href="profile.html">
+Profile
+</a>
+</li>
+
+</ul>
+
+</nav>
+
+</header>
+
+
+
+
+<main id="main-content">
+
+
+
+<section class="page-banner compact">
+
+<div class="container role-banner-row">
+
+
+<div>
+
+<p class="eyebrow">
+Teacher Dashboard
+</p>
+
+
+<h1>
+Teacher Analytics Dashboard
+</h1>
+
+
+<p>
+Manage students, analyze class performance and generate reports.
+</p>
+
+
+</div>
+
+
+
+<div class="dashboard-actions">
+
+
+<button 
+class="notification-toggle"
+id="notification-toggle">
+
+Notifications
+
+<span id="notification-badge">
+0
+</span>
+
+</button>
+
+
+
+<a href="reports.html"
+class="btn btn-primary">
+
+Generate Report
+
+</a>
+
+
+
+<button 
+class="btn btn-secondary"
+data-logout>
+
+Sign out
+
+</button>
+
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+<section class="section container">
+
+
+<div class="role-welcome">
+
+<span class="role-chip">
+Teacher
+</span>
+
+
+<p>
+Signed in as 
+<strong data-current-user-name></strong>
+</p>
+
+</div>
+
+
+
+
+<div class="stats-grid">
+
+
+<article class="stat-card">
+
+<span class="stat-label">
+Total Students
+</span>
+
+<strong id="student-count">
+0
+</strong>
+
+<small>
+Class Records
+</small>
+
+</article>
+
+
+
+<article class="stat-card">
+
+<span class="stat-label">
+Average Score
+</span>
+
+<strong id="average-score">
+0%
+</strong>
+
+<small>
+Class Average
+</small>
+
+</article>
+
+
+
+
+<article class="stat-card">
+
+<span class="stat-label">
+Top Grade
+</span>
+
+<strong id="top-grade">
+—
+</strong>
+
+<small>
+Best Performance
+</small>
+
+</article>
+
+
+
+
+<article class="stat-card">
+
+<span class="stat-label">
+Attendance
+</span>
+
+<strong id="average-attendance">
+0%
+</strong>
+
+<small>
+Average Attendance
+</small>
+
+</article>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="section container dashboard-grid">
+
+
+<div class="panel">
+
+
+<div class="panel-header">
+
+<div>
+
+<p class="eyebrow">
+Analytics
+</p>
+
+
+<h2>
+Class Performance Analytics
+</h2>
+
+</div>
+
+</div>
+
+
+
+
+<div class="chart-grid">
+
+
+<div class="chart-card">
+
+<h3>
+Student Scores
+</h3>
+
+<canvas id="overall-score-chart"></canvas>
+
+
+</div>
+
+
+
+
+<div class="chart-card">
+
+
+<h3>
+Grade Distribution
+</h3>
+
+
+<canvas id="grade-distribution-chart"></canvas>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+<aside class="panel">
+
+
+<div class="panel-header">
+
+<div>
+
+<p class="eyebrow">
+Updates
+</p>
+
+<h2>
+Recent Activity
+</h2>
+
+</div>
+
+</div>
+
+
+<ul class="activity-list" data-activity-list>
+
+</ul>
+
+
+</aside>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="section container" id="student-records">
+
+
+<div class="panel">
+
+
+<div class="panel-header">
+
+<div>
+
+<p class="eyebrow">
+Teacher View
+</p>
+
+
+<h2>
+Student Records Management
+</h2>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="advanced-controls">
+
+
+<label class="search-box">
+
+Search
+
+<input 
+id="student-search"
+type="search"
+placeholder="Search student">
+
+</label>
+
+
+
+
+
+<label class="filter-control">
+
+Grade
+
+<select id="student-grade-filter">
+
+<option value="all">
+All
+</option>
+
+<option>
+A+
+</option>
+
+<option>
+A
+</option>
+
+<option>
+B
+</option>
+
+<option>
+C
+</option>
+
+<option>
+D
+</option>
+
+<option>
+F
+</option>
+
+
+</select>
+
+</label>
+
+
+
+
+
+<label class="filter-control">
+
+Sort
+
+<select id="student-sort">
+
+
+<option value="id-asc">
+Student ID
+</option>
+
+
+<option value="name-asc">
+Name A-Z
+</option>
+
+
+<option value="score-desc">
+Score High-Low
+</option>
+
+
+</select>
+
+
+</label>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="table-action-bar">
+
+
+<div class="export-actions">
+
+
+<button 
+class="btn btn-secondary"
+id="student-export-csv">
+
+Export CSV
+
+</button>
+
+
+
+<button 
+class="btn btn-secondary"
+id="student-export-pdf">
+
+Export PDF
+
+</button>
+
+
+</div>
+
+
+
+
+<select id="student-page-size">
+
+<option>
+5
+</option>
+
+<option>
+10
+</option>
+
+<option>
+20
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="table-wrap">
+
+
+<table id="student-table">
+
+
+<thead>
+
+<tr>
+
+<th>
+Student ID
+</th>
+
+
+<th>
+Name
+</th>
+
+
+<th>
+Attendance
+</th>
+
+
+<th>
+Score
+</th>
+
+
+<th>
+Grade
+</th>
+
+
+<th>
+Profile
+</th>
+
+
+</tr>
+
+
+</thead>
+
+
+
+<tbody>
+
+</tbody>
+
+
+
+</table>
+
+
+</div>
+
+
+
+
+<p 
+id="student-empty"
+class="empty-state"
+hidden>
+
+No record found
+
+</p>
+
+
+
+
+
+<div class="pagination-bar">
+
+
+<button 
+class="btn btn-secondary"
+id="student-prev-page">
+
+Previous
+
+</button>
+
+
+
+<span id="student-page-info">
+
+Page 1
+
+</span>
+
+
+
+<button 
+class="btn btn-secondary"
+id="student-next-page">
+
+Next
+
+</button>
+
+
+</div>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<aside class="notification-panel"
+id="notification-panel"
+hidden>
+
+
+<div class="notification-header">
+
+
+<h2>
+Notifications
+</h2>
+
+
+<button id="notification-close">
+×
+</button>
+
+
+</div>
+
+
+<ul id="notification-list">
+
+</ul>
+
+
+<button 
+class="btn btn-secondary"
+id="mark-notifications-read">
+
+Mark Read
+
+</button>
+
+
+</aside>
+
+
+
+
+
+</main>
+
+
+
+
+
+
+
+
+<footer class="site-footer">
+
+
+<div class="container footer-content">
+
+
+<p>
+© 2026 EduTrack Analytics.
+</p>
+
+
+<div class="footer-links">
+
+<a href="profile.html">
+Profile
+</a>
+
+
+<a href="reports.html">
+Reports
+</a>
+
+</div>
+
+
+</div>
+
+
+</footer>
+
+
+
+
+
+<script src="js/chart.min.js"></script>
+<script src="js/app.js"></script>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+
+let user =
+JSON.parse(localStorage.getItem("currentUser"));
+
+
+let btn =
+document.getElementById("theme-toggle");
+
+
+if(btn){
+
+btn.onclick=()=>{
+
+document.documentElement.toggleAttribute(
+"data-theme"
+);
+
+};
+
+}
+
+
+
+});
+
+
+</script>
+
+
+</body>
+
+</html>

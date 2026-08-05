@@ -1,177 +1,41 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Login to the Student Performance Analytics Portal">
-  <title>EduTrack Analytics | Login</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Login to the Student Performance Analytics Portal" name="description"/>
+<title>EduTrack Analytics | Login</title>
+<link href="css/style.css" rel="stylesheet"/>
 </head>
-
-<body>
-
-  <header class="site-header">
-    <nav class="navbar container" aria-label="Main navigation">
-
-      <a class="brand" href="index.html">
-        <span class="brand-mark">EA</span>
-        <span>EduTrack Analytics</span>
-      </a>
-
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-label="Toggle navigation"
-        aria-expanded="false"
-        aria-controls="nav-links">
-        ☰
-      </button>
-
-      <ul class="nav-links" id="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="dashboard.html">Dashboard</a></li>
-        <li><a href="reports.html">Reports</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a class="active" href="login.html">Login</a></li>
-      </ul>
-
-    </nav>
-  </header>
-
-  <main class="login-main">
-
-    <section class="login-card" aria-labelledby="login-title">
-
-      <div class="section-heading">
-        <p class="eyebrow">Portal Login</p>
-
-        <h1 id="login-title">
-          Welcome Back
-        </h1>
-
-        <p>
-          Login using your registered account or the demo credentials below.
-        </p>
-
-      </div>
-
-      <form id="login-form" class="form-grid" novalidate>
-
-        <label for="login-email">
-          Email Address
-        </label>
-
-        <input
-          id="login-email"
-          type="email"
-          name="email"
-          placeholder="student@edutrack.com"
-          autocomplete="username"
-          required
-          maxlength="100"
-          spellcheck="false"
-          aria-label="Email Address"
-        >
-
-        <label for="login-password">
-          Password
-        </label>
-
-        <input
-          id="login-password"
-          type="password"
-          name="password"
-          placeholder="Enter Password"
-          autocomplete="current-password"
-          required
-          minlength="8"
-          maxlength="20"
-          aria-label="Password"
-        >
-
-        <!-- Week 6 Error Message -->
-        <div
-          id="login-error"
-          class="error-message"
-          role="alert"
-          aria-live="assertive">
-        </div>
-
-        <button
-          class="btn btn-primary full-width"
-          type="submit">
-          🔐 Login Securely
-        </button>
-
-        <p
-          class="form-message"
-          id="login-message"
-          role="status"
-          aria-live="polite">
-        </p>
-
-      </form>
-
-      <div class="auth-links">
-        <a href="forgot-password.html">Forgot Password?</a>
-        <a href="register.html">Create Account</a>
-      </div>
-
-      <div class="demo-login">
-
-        <strong>Demo Role Accounts</strong>
-
-        <span>
-          Student:
-          student@edutrack.com /
-          Student123
-        </span>
-
-        <span>
-          Teacher:
-          teacher@edutrack.com /
-          Teacher123
-        </span>
-
-        <span>
-          Administrator:
-          admin@edutrack.com /
-          Admin123
-        </span>
-
-      </div>
-
-      <div class="login-note">
-        <p>
-          <strong>Note:</strong>
-          Please use a valid email address and password to access your dashboard.
-        </p>
-      </div>
-
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-
-    <div class="container footer-content">
-
-      <p>
-        © 2026 EduTrack Analytics.
-        Student Performance Analytics Portal.
-      </p>
-
-      <div class="footer-links">
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </div>
-
-    </div>
-
-  </footer>
-
-  <script src="js/app.js"></script>
-
+<body><a class="skip-link" href="#main-content">Skip to main content</a>
+<header class="site-header">
+<nav aria-label="Main navigation" class="navbar container">
+<a class="brand" href="index.html"><span class="brand-mark">EA</span><span>EduTrack Analytics</span></a>
+<button aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation" class="menu-toggle" type="button">☰</button>
+<ul class="nav-links" id="nav-links">
+<li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="dashboard.html">Dashboard</a></li><li><a href="reports.html">Reports</a></li><li><a href="final-demo.html">Final Demo</a></li><li><a href="contact.html">Contact</a></li><li><a aria-current="page" class="active" href="login.html">Login</a></li>
+</ul>
+</nav>
+</header>
+<main class="login-main" id="main-content">
+<section aria-labelledby="login-title" class="login-card">
+<div class="section-heading">
+<p class="eyebrow">Portal Login</p>
+<h1 id="login-title">Welcome back</h1>
+<p>Login with the demo account or an account registered in this browser.</p>
+</div>
+<form class="form-grid" id="login-form" novalidate="">
+<label>Email Address<input aria-required="true" autocomplete="username" id="login-email" placeholder="student@edutrack.com" required="" type="email"/></label>
+<label>Password<input aria-required="true" autocomplete="current-password" id="login-password" minlength="6" placeholder="Enter password" required="" type="password"/></label>
+<button class="btn btn-primary full-width" type="submit">Login</button>
+<p aria-live="polite" class="form-message" id="login-message" role="status"></p>
+</form>
+<div class="auth-links"><a href="forgot-password.html">Forgot password?</a><a href="register.html">Create account</a></div>
+<div class="demo-login"><strong>Demo role accounts</strong><span>Student: student@edutrack.com / Student123</span><span>Teacher: teacher@edutrack.com / Teacher123</span><span>Administrator: admin@edutrack.com / Admin123</span></div>
+</section>
+</main>
+<footer class="site-footer"><div class="container footer-content"><p>© 2026 EduTrack Analytics. Student Performance Analytics Portal.</p><div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="final-demo.html">Final Demo</a></div></div></footer>
+<script defer="" src="js/app.js"></script>
 </body>
 </html>

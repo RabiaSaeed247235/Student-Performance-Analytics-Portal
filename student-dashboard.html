@@ -1,123 +1,31 @@
 <!DOCTYPE html>
+
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EduTrack Analytics | Student Dashboard</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
-
-<body>
-
+<head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="Student dashboard for the Student Performance Analytics Portal" name="description"/><title>EduTrack Analytics | Student Dashboard</title><link href="css/style.css" rel="stylesheet"/></head>
+<body data-required-role="student">
 <a class="skip-link" href="#main-content">Skip to main content</a>
-
 <header class="site-header">
-  <nav class="navbar container">
-    <a class="brand" href="index.html">
-      <span class="brand-mark">EA</span>
-      <span>EduTrack Analytics</span>
-    </a>
-
-    <button class="menu-toggle">☰</button>
-
-    <ul class="nav-links">
-      <li><a class="active" href="student-dashboard.html">Dashboard</a></li>
-      <li><a href="#my-performance">My Performance</a></li>
-      <li><a href="reports.html">Reports</a></li>
-      <li><a href="profile.html">Profile</a></li>
-    </ul>
-  </nav>
+<nav aria-label="Student navigation" class="navbar container">
+<a class="brand" href="index.html"><span class="brand-mark">EA</span><span>EduTrack Analytics</span></a>
+<button aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation" class="menu-toggle" type="button">☰</button>
+<ul class="nav-links" id="nav-links"><li><a aria-current="page" class="active" href="student-dashboard.html">Dashboard</a></li><li><a href="student-dashboard.html#my-performance">My Performance</a></li><li><a href="reports.html">Reports</a></li><li><a href="final-demo.html">Final Demo</a></li><li><a href="account-profile.html">Profile</a></li></ul>
+</nav>
 </header>
-
 <main id="main-content">
-
-  <!-- Banner -->
-  <section class="page-banner compact">
-    <div class="container">
-
-      <p class="eyebrow">Student Dashboard</p>
-      <h1>Your Performance Overview</h1>
-
-      <p>
-        Track your academic progress, view analytics and manage profile.
-      </p>
-
-      <div class="dashboard-actions">
-        <button id="notification-toggle">
-          Notifications <span id="notification-badge">0</span>
-        </button>
-
-        <button data-logout>Sign Out</button>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- Profile -->
-  <section class="section container" id="my-performance">
-
-    <p>Signed in as <strong data-current-user-name></strong></p>
-
-    <div class="panel">
-
-      <h2 id="student-role-name">Loading...</h2>
-      <p id="student-role-id">ID: Loading...</p>
-      <span id="student-role-grade">—</span>
-
-    </div>
-
-    <div id="student-role-cards"></div>
-
-    <div class="panel">
-      <h3>Performance Details</h3>
-      <div id="student-role-details"></div>
-    </div>
-
-  </section>
-
-
-  <!-- Chart -->
-  <section class="section container">
-
-    <div class="panel">
-      <h3>Overall Scores</h3>
-      <canvas id="overall-score-chart"></canvas>
-    </div>
-
-    <div class="panel">
-      <h3>Activity</h3>
-      <ul data-activity-list></ul>
-    </div>
-
-  </section>
-
-
-  <!-- Notifications -->
-  <aside id="notification-panel" hidden>
-
-    <h3>Notifications</h3>
-
-    <ul id="notification-list"></ul>
-
-    <button id="mark-notifications-read">
-      Mark all as read
-    </button>
-
-    <button onclick="location.href='reports.html'">
-      View Reports
-    </button>
-
-  </aside>
-
+<section class="page-banner compact"><div class="container role-banner-row"><div><p class="eyebrow">Student Dashboard</p><h1>Your personal performance overview</h1><p>View your own performance cards, assessment details, notifications, and student-specific navigation.</p></div><div class="dashboard-actions"><button aria-controls="notification-panel" aria-expanded="false" class="notification-toggle" id="notification-toggle" type="button">Notifications <span class="notification-badge" id="notification-badge">0</span></button><button class="btn btn-secondary" data-logout="" type="button">Sign out</button></div></div></section>
+<section class="section container" id="my-performance"><div class="role-welcome"><span class="role-chip">Student</span><p>Signed in as <strong data-current-user-name=""></strong></p></div><div class="profile-header panel"><div><p class="eyebrow">My Record</p><h2 id="student-role-name">Loading...</h2><p id="student-role-id"></p></div><span class="grade" id="student-role-grade">—</span></div><div aria-label="Student performance cards" class="stats-grid profile-stats" id="student-role-cards"></div><div class="panel"><div class="panel-header"><div><p class="eyebrow">Assessment Details</p><h2>My performance breakdown</h2></div></div><div class="profile-details" id="student-role-details"></div></div></section>
+<section class="section container dashboard-grid week5-student-tools">
+<div class="panel">
+<div class="panel-header"><div><p class="eyebrow">Interactive Chart</p><h2>My performance chart</h2></div></div>
+<div class="chart-grid single"><div class="chart-card"><h3>Overall Class Scores</h3><canvas height="180" id="overall-score-chart"></canvas></div></div>
+</div>
+<aside class="panel"><div class="panel-header"><div><p class="eyebrow">Recent Activity</p><h2>Latest updates</h2></div></div><ul class="activity-list" data-activity-list=""></ul></aside>
+</section>
+<aside aria-labelledby="notification-title" class="notification-panel" hidden="" id="notification-panel">
+<div class="notification-header"><div><p class="eyebrow">Updates</p><h2 id="notification-title">Notifications</h2></div><button aria-label="Close notifications" class="icon-button" id="notification-close" type="button">×</button></div>
+<ul aria-live="polite" class="notification-list" id="notification-list"></ul>
+<button class="btn btn-secondary full-width" id="mark-notifications-read" type="button">Mark all as read</button>
+</aside>
 </main>
-
-<footer>
-  <p>© 2026 EduTrack Analytics</p>
-</footer>
-
-<script src="js/chart.min.js"></script>
-<script src="js/app.js"></script>
-
-</body>
-</html>
+<footer class="site-footer"><div class="container footer-content"><p>© 2026 EduTrack Analytics. Student Performance Analytics Portal.</p><div class="footer-links"><a href="account-profile.html">Profile</a><a href="reports.html">Reports</a><a href="final-demo.html">Final Demo</a></div></div></footer><script defer="" src="js/chart.min.js"></script><script defer="" src="js/app.js"></script>
+</body></html>

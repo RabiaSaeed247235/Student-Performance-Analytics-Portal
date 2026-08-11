@@ -1,104 +1,119 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="Final integrated front-end demonstration for the Student Performance Analytics Portal" name="description"/>
-<title>EduTrack Analytics | Final Demo</title>
-<link href="css/style.css" rel="stylesheet"/>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Final Week 8 front-end demonstration for the Student Performance Analytics Portal" name="description"/>
+  <title>EduTrack Analytics | Final Project Demo</title>
+  <link href="css/style.css" rel="stylesheet"/>
 </head>
-<body><a class="skip-link" href="#main-content">Skip to main content</a>
+<body>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 <header class="site-header">
-<nav aria-label="Main navigation" class="navbar container">
-<a class="brand" href="index.html"><span class="brand-mark">EA</span><span>EduTrack Analytics</span></a>
-<button aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation" class="menu-toggle" type="button">☰</button>
-<ul class="nav-links" id="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="dashboard.html">Dashboard</a></li>
-<li><a href="reports.html">Reports</a></li>
-<li><a href="account-profile.html">Profile</a></li>
-<li><a aria-current="page" class="active" href="final-demo.html">Final Demo</a></li>
-<li><a href="login.html">Login</a></li>
-</ul>
-</nav>
+  <nav aria-label="Main navigation" class="navbar container">
+    <a class="brand" href="index.html"><span class="brand-mark">EA</span><span>EduTrack Analytics</span></a>
+    <button aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation" class="menu-toggle" type="button">☰</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="reports.html">Reports</a></li>
+      <li><a href="account-profile.html">Profile</a></li>
+      <li><a aria-current="page" class="active" href="final-demo.html">Final Demo</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
 </header>
 <main id="main-content">
-<section class="page-banner compact">
-<div class="container role-banner-row">
-<div>
-<p class="eyebrow">Week 7 Final Integration</p>
-<h1>Complete integrated front-end demonstration</h1>
-<p>This page connects the main project flow, dashboard modules, charts, tables, filters, notifications, profile management, and UI state examples in one review screen.</p>
-</div>
-<div class="dashboard-actions"><a class="btn btn-primary" href="login.html">Start from Login</a><a class="btn btn-secondary" href="dashboard.html">Open Dashboard</a></div>
-</div>
-</section>
-<section aria-labelledby="flow-title" class="section container compact-section">
-<div class="panel final-flow-panel">
-<div class="panel-header"><div><p class="eyebrow">Functional User Flow</p><h2 id="flow-title">Login → Dashboard → Reports → Profile</h2></div></div>
-<ol aria-label="Final project user flow" class="flow-steps">
-<li data-flow-step="login"><span>1</span><strong>Login</strong><p>Authenticate with demo or registered Local Storage account.</p><a href="login.html">Open Login</a></li>
-<li data-flow-step="dashboard"><span>2</span><strong>Dashboard</strong><p>Role routing opens Administrator, Teacher, or Student dashboard.</p><a href="dashboard.html">Open Dashboard</a></li>
-<li data-flow-step="reports"><span>3</span><strong>Reports</strong><p>Review report charts, table records, filters, and export actions.</p><a href="reports.html">Open Reports</a></li>
-<li data-flow-step="profile"><span>4</span><strong>Profile</strong><p>Manage the signed-in account profile and role details.</p><a href="account-profile.html">Open Profile</a></li>
-</ol>
-</div>
-</section>
-<section class="section container dashboard-grid">
-<div class="panel">
-<div class="panel-header"><div><p class="eyebrow">Integrated Components</p><h2>Charts, records, filters and dashboard cards</h2></div></div>
-<div class="stats-grid mini-stats">
-<article class="stat-card"><span class="stat-label">Records</span><strong id="student-count">0</strong><small>Loaded from shared data</small></article>
-<article class="stat-card"><span class="stat-label">Average Score</span><strong id="average-score">0%</strong><small>Calculated by JavaScript</small></article>
-<article class="stat-card"><span class="stat-label">Top Grade</span><strong id="top-grade">—</strong><small>Highest grade found</small></article>
-<article class="stat-card"><span class="stat-label">Attendance</span><strong id="average-attendance">0%</strong><small>Average rate</small></article>
-</div>
-<div class="chart-grid">
-<div class="chart-card"><h3>Overall Scores</h3><canvas height="180" id="overall-score-chart"></canvas></div>
-<div class="chart-card"><h3>Grade Distribution</h3><canvas height="180" id="grade-distribution-chart"></canvas></div>
-</div>
-</div>
-<aside class="panel">
-<div class="panel-header"><div><p class="eyebrow">Recent Activity</p><h2>Latest project actions</h2></div></div>
-<ul class="activity-list" data-activity-list=""></ul>
-</aside>
-</section>
-<section class="section container dashboard-grid">
-<div class="panel">
-<div class="panel-header"><div><p class="eyebrow">UI State Interfaces</p><h2>Loading, success, error and empty states</h2></div></div>
-<div class="state-grid">
-<div class="state-card loading"><span aria-hidden="true" class="loader"></span><strong>Loading</strong><p>Used while dashboard and report modules prepare data.</p></div>
-<div class="state-card success"><strong>Success</strong><p>Used after login, profile update, CSV export, and student creation.</p></div>
-<div class="state-card error"><strong>Error</strong><p>Used for invalid form fields, wrong credentials, or protected profile access.</p></div>
-<div class="state-card empty"><strong>Empty</strong><p>Used when search and filter controls return no matching records.</p></div>
-</div>
-</div>
-<aside class="panel">
-<div class="panel-header"><div><p class="eyebrow">Demo Accounts</p><h2>Role-based dashboards</h2></div></div>
-<div class="demo-login final-demo-accounts"><span>Student: student@edutrack.com / Student123</span><span>Teacher: teacher@edutrack.com / Teacher123</span><span>Administrator: admin@edutrack.com / Admin123</span></div>
-<div class="flow-actions"><a class="btn btn-secondary full-width" href="student-dashboard.html">Student Dashboard</a><a class="btn btn-secondary full-width" href="teacher-dashboard.html">Teacher Dashboard</a><a class="btn btn-secondary full-width" href="admin-dashboard.html">Administrator Dashboard</a></div>
-</aside>
-</section>
-<section class="section container compact-section">
-<div class="panel">
-<div class="panel-header"><div><p class="eyebrow">Final Demonstration Checklist</p><h2>Week 7 front-end readiness</h2></div></div>
-<div class="checklist-grid">
-<div class="check-item">Major pages integrated</div>
-<div class="check-item">Navigation connected</div>
-<div class="check-item">Consistent styling applied</div>
-<div class="check-item">Charts and tables connected</div>
-<div class="check-item">Filters and exports available</div>
-<div class="check-item">Notifications and activity widgets available</div>
-<div class="check-item">Loading/success/error/empty states included</div>
-<div class="check-item">Responsive demo flow prepared</div>
-</div>
-</div>
-</section>
+  <section class="page-banner compact">
+    <div class="container role-banner-row">
+      <div>
+        <p class="eyebrow">Week 8 Final Project</p>
+        <h1>Complete Student Performance Analytics Portal</h1>
+        <p>This page is prepared for the final project demonstration. It summarizes the reviewed pages, connected navigation, validated forms, dashboard cards, charts, tables, responsive layouts, documentation, and submission package.</p>
+      </div>
+      <div class="dashboard-actions"><a class="btn btn-primary" href="login.html">Start Demo from Login</a><a class="btn btn-secondary" href="dashboard.html">Open Dashboard</a></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="flow-title" class="section container compact-section">
+    <div class="panel final-flow-panel">
+      <div class="panel-header"><div><p class="eyebrow">Functional User Flow</p><h2 id="flow-title">Login → Dashboard → Reports → Profile → Final Demo</h2></div></div>
+      <ol aria-label="Final project user flow" class="flow-steps">
+        <li data-flow-step="login"><span>1</span><strong>Login</strong><p>Authenticate with demo accounts or a registered Local Storage account.</p><a href="login.html">Open Login</a></li>
+        <li data-flow-step="dashboard"><span>2</span><strong>Dashboard</strong><p>Role routing opens Administrator, Teacher, or Student dashboard views.</p><a href="dashboard.html">Open Dashboard</a></li>
+        <li data-flow-step="reports"><span>3</span><strong>Reports</strong><p>Review charts, records, filters, pagination, and export actions.</p><a href="reports.html">Open Reports</a></li>
+        <li data-flow-step="profile"><span>4</span><strong>Profile</strong><p>Manage the signed-in account profile and role details.</p><a href="account-profile.html">Open Profile</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section container dashboard-grid">
+    <div class="panel">
+      <div class="panel-header"><div><p class="eyebrow">Integrated Components</p><h2>Charts, records, filters and dashboard cards</h2></div></div>
+      <div class="stats-grid mini-stats">
+        <article class="stat-card"><span class="stat-label">Records</span><strong id="student-count">0</strong><small>Loaded from shared data</small></article>
+        <article class="stat-card"><span class="stat-label">Average Score</span><strong id="average-score">0%</strong><small>Calculated by JavaScript</small></article>
+        <article class="stat-card"><span class="stat-label">Top Grade</span><strong id="top-grade">—</strong><small>Highest grade found</small></article>
+        <article class="stat-card"><span class="stat-label">Attendance</span><strong id="average-attendance">0%</strong><small>Average rate</small></article>
+      </div>
+      <div class="chart-grid">
+        <div class="chart-card"><h3>Overall Scores</h3><canvas height="180" id="overall-score-chart"></canvas></div>
+        <div class="chart-card"><h3>Grade Distribution</h3><canvas height="180" id="grade-distribution-chart"></canvas></div>
+      </div>
+    </div>
+    <aside class="panel">
+      <div class="panel-header"><div><p class="eyebrow">Recent Activity</p><h2>Latest project actions</h2></div></div>
+      <ul class="activity-list" data-activity-list></ul>
+    </aside>
+  </section>
+
+  <section class="section container dashboard-grid">
+    <div class="panel">
+      <div class="panel-header"><div><p class="eyebrow">Week 8 Review</p><h2>Finalization checklist</h2></div></div>
+      <div class="checklist-grid">
+        <div class="check-item">Reviewed all pages from Weeks 1–7</div>
+        <div class="check-item">Checked all navigation links</div>
+        <div class="check-item">Verified form validation</div>
+        <div class="check-item">Checked tables, charts and cards</div>
+        <div class="check-item">Reviewed desktop, tablet and mobile layouts</div>
+        <div class="check-item">Improved spacing, fonts, colors and buttons</div>
+        <div class="check-item">Organized files into HTML, CSS, JS and docs folders</div>
+        <div class="check-item">Updated README and documentation</div>
+        <div class="check-item">Captured screenshots of major pages</div>
+        <div class="check-item">Prepared final project demo flow</div>
+      </div>
+    </div>
+    <aside class="panel">
+      <div class="panel-header"><div><p class="eyebrow">Demo Accounts</p><h2>Role-based dashboards</h2></div></div>
+      <div class="demo-login final-demo-accounts"><span>Student: student@edutrack.com / Student123</span><span>Teacher: teacher@edutrack.com / Teacher123</span><span>Administrator: admin@edutrack.com / Admin123</span></div>
+      <div class="flow-actions"><a class="btn btn-secondary full-width" href="student-dashboard.html">Student Dashboard</a><a class="btn btn-secondary full-width" href="teacher-dashboard.html">Teacher Dashboard</a><a class="btn btn-secondary full-width" href="admin-dashboard.html">Administrator Dashboard</a></div>
+    </aside>
+  </section>
+
+  <section class="section container dashboard-grid">
+    <div class="panel">
+      <div class="panel-header"><div><p class="eyebrow">UI State Interfaces</p><h2>Loading, success, error and empty states</h2></div></div>
+      <div class="state-grid">
+        <div class="state-card loading"><span aria-hidden="true" class="loader"></span><strong>Loading</strong><p>Used while dashboard and report modules prepare data.</p></div>
+        <div class="state-card success"><strong>Success</strong><p>Used after login, profile update, CSV export, and student creation.</p></div>
+        <div class="state-card error"><strong>Error</strong><p>Used for invalid form fields, wrong credentials, or protected profile access.</p></div>
+        <div class="state-card empty"><strong>Empty</strong><p>Used when search and filter controls return no matching records.</p></div>
+      </div>
+    </div>
+    <aside class="panel final-package-panel">
+      <div class="panel-header"><div><p class="eyebrow">Final Package</p><h2>Submission-ready files</h2></div></div>
+      <ul class="activity-list">
+        <li class="activity-item"><strong>Source Code</strong><small>HTML, CSS and JavaScript files organized by folder.</small></li>
+        <li class="activity-item"><strong>README</strong><small>Overview, features, technologies, installation and folder structure.</small></li>
+        <li class="activity-item"><strong>Documentation</strong><small>Reports, browser testing, bug fixes and final demo script.</small></li>
+        <li class="activity-item"><strong>Screenshots</strong><small>Major pages stored in docs/screenshots.</small></li>
+      </ul>
+    </aside>
+  </section>
 </main>
 <footer class="site-footer"><div class="container footer-content"><p>© 2026 EduTrack Analytics. Student Performance Analytics Portal.</p><div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="final-demo.html">Final Demo</a></div></div></footer>
-<script defer="" src="js/chart.min.js"></script>
-<script defer="" src="js/app.js"></script>
+<script defer src="js/chart.min.js"></script>
+<script defer src="js/app.js"></script>
 </body>
 </html>
